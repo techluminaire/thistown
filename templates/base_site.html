@@ -1,0 +1,54 @@
+{% load staticfiles %}{% load url from future %}<!DOCTYPE html>
+
+<html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "css/base.css" %}{% endblock %}" />
+	{% block extrastyle %}{% endblock %}
+	
+	<script type="text/javascript">
+	
+	</script>
+	{% block extrahead %}{% endblock %}
+	
+	<script type="text/javascript">{% block extrascript %}{% endblock %}</script>
+	
+	{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+	
+</head>
+{% load i18n %}
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+
+<!-- Container -->
+<div id="container">
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        {% block branding %}<h1 id="site-name"> <a href = "{% url 'index' %}">'This Town'</a></h1>{% endblock %}
+        </div>
+        <div id="Menu">
+           
+        </div>
+    </div>
+    <!-- END Header -->
+   
+    <!-- Content -->
+    <div id="content" class="{% block coltype %}colM{% endblock %}">
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    {% block footer %}
+    <div id="footer">
+     	Created By Justin Hui @ <a href="http://techluminaire.co.uk">Tech Luminaire</a>
+    </div>
+    {% endblock %}
+</div>
+<!-- END Container -->
+
+</body>
+</html>
