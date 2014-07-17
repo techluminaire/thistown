@@ -6,9 +6,9 @@ body {
     margin: 0;
     padding: 0;
     font-size: 12px;
-    font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif";
-    color: #333;
-    background: White;
+    font-family: Arial;
+    color: white;
+    background: black;
 }
 
 /* LINKS */
@@ -84,27 +84,6 @@ h5 {
     letter-spacing: 1px;
 }
 
-ul li {
-    list-style-type: square;
-    padding: 1px 0;
-}
-
-ul.plainlist {
-    margin-left: 0 !important;
-}
-
-ul.plainlist li {
-    list-style-type: none;
-}
-
-li ul {
-    margin-bottom: 0;
-}
-
-li, dt, dd {
-    font-size: 11px;
-    line-height: 14px;
-}
 
 dt {
     font-weight: bold;
@@ -785,9 +764,6 @@ table#change-history tbody th {
     margin: 10px 15px;
 }
 
-#header {
-    width: 100%;
-}
 
 #content-main {
     float: left;
@@ -806,94 +782,43 @@ table#change-history tbody th {
     padding: 10px;
 }
 
-/* COLUMN TYPES */
 
-.colMS {
-    margin-right: 20em !important;
-}
-
-.colSM {
-    margin-left: 20em !important;
-}
-
-.colSM #content-related {
-    float: left;
-    margin-right: 0;
-    margin-left: -19em;
-}
-
-.colSM #content-main {
-    float: right;
-}
-
-.popup .colM {
-    width: 95%;
-}
-
-.subcol {
-    float: left;
-    width: 46%;
-    margin-right: 15px;
-}
-
-.dashboard #content {
-    width: 500px;
-}
 
 /* HEADER */
 
 #header {
-    background: #330066;
-    color: #fff;
+    background: white;
+    color: black;
     overflow: hidden;
 }
 
+
 #header a:link, #header a:visited {
-    color: white;
+    color: black;
 }
 
-#header a:hover {
-    text-decoration: underline;
+
+div#logo {
+  float: left;
+  padding-top: 5px;
 }
 
-#branding h1 {
-    padding: 0 10px;
-    font-size: 32px;
-    margin: 8px 0;
-    font-weight: lighter;
-    color: #ffffff;
+#menu {
+	float:left;
+	padding-top: 25px;
+    font-size: 18px;
+    font-weight:  normal;
+    font-family: "Roboto Condensed",sans-serif;
+    text-align: center;
 }
 
-#branding h2 {
-    padding: 0 10px;
-    font-size: 20px;
-    margin: -8px 0 8px 0;
-    font-weight: normal;
-    color: #ffc;
+#menu ul {
+    height: auto;
+    padding: 8px 0px;
+    margin: 0px;
 }
 
-#user-tools {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-right: 10px;
-	padding-top: 28px;
-    font-size: 13px;
-    text-align: right;
+#menu li { 
+display: inline; 
+padding: 20px; 
 }
-
-/* SIDEBAR */
-
-#content-related h3 {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 3px;
-}
-
-#content-related h4 {
-    font-size: 11px;
-}
-
-#content-related .module h2 {
-    background: #eee url(../img/nav-bg.gif) bottom left repeat-x;
-    color: #666;

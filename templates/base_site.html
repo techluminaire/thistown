@@ -26,18 +26,22 @@
 
     <!-- Header -->
     <div id="header">
-        <div id="branding">
-        {% block branding %}<h1 id="site-name"> <a href = "{% url 'index' %}">'This Town'</a></h1>{% endblock %}
-        </div>
-        <div id="Menu">
-           
+    	<div id="logo">
+    		<a href = "/"><img src="{% static "images/logo.png" %}"/></a>
+    	</div>
+        <div id="menu">
+			<ul>
+				<li><a href="/whatson">WHATS ON</a></li>
+				<li><a href="/music">MUSIC</a></li>
+				<li><a href="/film">FILM</a></li>
+				<li><a href="/people">PEOPLE</a></li>
+			</ul>
         </div>
     </div>
     <!-- END Header -->
    
     <!-- Content -->
-    <div id="content" class="{% block coltype %}colM{% endblock %}">
-
+    <div id="content">
         <br class="clear" />
     </div>
     <!-- END Content -->

@@ -25,10 +25,10 @@ SECRET_KEY = '%ram9*6-t8(im+3v7%_5i(-7i+^^snks_q8=yg5_a)j!x+8%xa'
 # SECURITY WARNING: don't run with debug turned on in production!
 if development:
     DEBUG = True
-	TEMPLATE_DEBUG = True
+    TEMPLATE_DEBUG = True
 else: 
     DEBUG = TEMPLATE_DEBUG = False 
-	TEMPLATE_DEBUG = False
+    TEMPLATE_DEBUG = False
 
 
 ALLOWED_HOSTS = ['localhost'
@@ -37,8 +37,6 @@ ALLOWED_HOSTS = ['localhost'
                 ,'5.101.102.252']
 
 
-
-MANAGERS = ADMINS
 
 # Application definition
 
