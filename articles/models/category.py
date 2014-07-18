@@ -14,7 +14,8 @@ class Category(CoreModelBase):
         
     
     name = models.CharField(max_length=50, db_index=True, null = False, blank = False)
-    parent = models.ForeignKey('self', blank = True, null = True, related_name="children")
+    sequence = models.IntegerField(null=True, db_index=True)
+    parent = models.ForeignKey('self', blank = True, null = True, related_name="children", db_index=True)
     
     #Used for ordering within admin
     path_and_name = models.TextField()
@@ -29,7 +30,7 @@ class Category(CoreModelBase):
         if self.parent is None:
             self.path_and_name = self.name
         else:
-            self.path_and_name = self.parent.path_and_name + '\\' + self.name
+            self.path_and_name = self.parent.path_and_name + '/' + self.name
             
         super(Category, self).save(*args, **kwargs)
     

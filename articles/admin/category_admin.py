@@ -7,7 +7,7 @@ class CategoryAdmin(admin.ModelAdmin):
     '''
 
     fieldsets = [
-              (None,                {'fields': ['id','name','parent']}), 
+              (None,                {'fields': ['id','name','sequence','parent']}), 
               ('Tracking',  {'fields':['last_updated_date','creation_date'], 'classes': ['collapse']}),
               ] 
     

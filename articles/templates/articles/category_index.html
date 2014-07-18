@@ -1,0 +1,17 @@
+{% extends "base_site.html" %}
+{% block subheader %}
+	<div id="sub_category_title">{{sub_category_name}}</div>
+   	<div id="submenu">
+		<ul>
+			{%for sub_category in sub_categories %}
+	         	<li><a href="/{{category_name}}/{{sub_category.name}}/">{{sub_category.name}}</a></li>
+	         	<li>/</li>
+	        {% endfor %}
+		</ul>
+    </div>
+
+{% endblock %}
+{% block content %}
+
+
+{% endblock %}

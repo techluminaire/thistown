@@ -17,7 +17,6 @@
 	{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 	
 </head>
-{% load i18n %}
 
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 
@@ -32,9 +31,34 @@
         <div id="menu">
 			<ul>
 				<li><a href="/whatson">WHATS ON</a></li>
+				{%for category in categories %}
+		         	<li><a href="/{{category.name}}/">{{category.name}}</a></li>
+		        {% endfor %}
+		        <!--
 				<li><a href="/music">MUSIC</a></li>
 				<li><a href="/film">FILM</a></li>
+				<li><a href="/eat">EAT</a></li>
 				<li><a href="/people">PEOPLE</a></li>
+				-->
+			</ul>
+        </div>
+        <div id="social">
+        	<ul>
+				<li>
+					<a href="https://twitter.com/ThisTown1">
+						<img src="{% static "images/twitter.png" %}"/>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/pages/This-Town/548581228598220?ref=hl">
+						<img src="{% static "images/facebook.png" %}"/>
+					</a>
+				</li>
+				<li>
+					<a href="http://instagram.com/this_town">
+						<img src="{% static "images/instagram.png" %}"/>
+					</a>
+				</li>			
 			</ul>
         </div>
     </div>
@@ -42,13 +66,14 @@
    
     <!-- Content -->
     <div id="content">
-        <br class="clear" />
+		{% block subheader %}{% endblock %}
+		{% block content %}{% endblock %}
     </div>
     <!-- END Content -->
 
     {% block footer %}
     <div id="footer">
-     	Created By Justin Hui @ <a href="http://techluminaire.co.uk">Tech Luminaire</a>
+     	Created By Justin @ <a href="http://techluminaire.co.uk">Tech Luminaire</a>
     </div>
     {% endblock %}
 </div>
