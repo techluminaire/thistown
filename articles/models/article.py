@@ -28,7 +28,14 @@ class Article(CoreModelBase):
     def __unicode__(self):
         return self.name
 
-
+        
+    def save(self, *args, **kwargs):
+        
+        #format name so it can be used for URLs
+        import re
+        self.name = re.sub(r'\W+', '', self.name.replace(" ", "-").lower())
+        
+        super(Article, self).save(*args, **kwargs)
    
    
     
