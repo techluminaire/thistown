@@ -33,7 +33,7 @@ class Article(CoreModelBase):
         
         #format name so it can be used for URLs
         import re
-        self.name = re.sub(r'\W+', '', self.name.replace(" ", "-").lower())
+        self.name = re.sub(r'\W+', '', self.name.lower())
         
         super(Article, self).save(*args, **kwargs)
    
