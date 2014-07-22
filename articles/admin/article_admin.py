@@ -9,7 +9,7 @@ class ArticleAdmin(admin.ModelAdmin):
     '''
 
     fieldsets = [
-              (None, {'fields': ['id','name','category','search_words','published','front_page','header','tagline','photos','content','author']}), 
+              (None, {'fields': ['id','name','category','search_words','published','front_page','header','tagline','thumbnail','photos','content','author']}), 
               ('Tracking',  {'fields':['last_updated_date','creation_date'], 'classes': ['collapse']}),
               ] 
     
@@ -17,7 +17,7 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['search_words','name','header','tagline',]
     list_filter = ['category','front_page','creation_date','last_updated_date']
     readonly_fields = ('last_updated_date','creation_date','id')
-    raw_id_fields = ('photos',)
+    raw_id_fields = ('photos','thumbnail')
 
 
     

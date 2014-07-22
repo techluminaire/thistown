@@ -36,7 +36,10 @@ ALLOWED_HOSTS = ['localhost'
                 ,'thistown.co.uk'
                 ,'5.101.102.252']
 
-
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'django.core.context_processors.request',
+)
 
 # Application definition
 
@@ -47,6 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'endless_pagination',
     'articles',
 )
 
