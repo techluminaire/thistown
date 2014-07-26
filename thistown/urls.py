@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
-
+from django.conf import settings
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -11,3 +12,10 @@ urlpatterns = patterns('',
     url(r'^(?P<category_name>\w+)/$', 'articles.views.index_views.category_index', name='category_index'),
     url(r'^(?P<category_name>\w+)/(?P<sub_category_name>\w+)/$', 'articles.views.index_views.sub_category_index', name='sub_category_index'),
 )
+
+
+#Allow media to be served in debug mode
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    )

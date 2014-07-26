@@ -1,3 +1,8 @@
 {% for entry in entries %}
-    <p>{{entry.tagline}}</p>
+    <div class="index_image">
+    	<a href="/article={{entry.name}}">
+	    	<img src="/media/{{entry.thumbnail}}"/>
+	    	<div class="image_overlay">{{entry.tagline}}</div>
+    	</a>
+	</div>
 {% endfor %}

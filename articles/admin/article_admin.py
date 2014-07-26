@@ -17,7 +17,7 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['search_words','name','header','tagline',]
     list_filter = ['category','front_page','creation_date','last_updated_date']
     readonly_fields = ('last_updated_date','creation_date','id')
-    raw_id_fields = ('photos','thumbnail')
+    raw_id_fields = ('photos',)
 
 
     

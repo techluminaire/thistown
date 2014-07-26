@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from articles.models import Category, Article
 
+
    
 def index(request):
     
@@ -20,19 +21,20 @@ def category_index(request,category_name):
     template = 'articles/category_index.html'
     page_template = 'articles/category_index_page.html'
     
+    
     if request.is_ajax():
         context = {
-                   'entries': Article.objects.filter(published = True, category__name = category_name).order_by('creation_date'),
+                   'entries': Article.objects.filter(published = True, category_tags__name = category_name).order_by('creation_date'),
                    'page_template': page_template,
                    }
         template = page_template
-    else:    
+    else:
         context = {
                   'sub_category_name': category_name,
                   'categories': Category.objects.filter(parent = None).order_by('sequence'),
                   'category_name': category_name,
                   'sub_categories': Category.objects.filter(parent__name = category_name).order_by('sequence'),
-                  'entries': Article.objects.filter(published = True, category__name = category_name).order_by('creation_date'),
+                  'entries': Article.objects.filter(published = True, category_tags__name = category_name).order_by('creation_date'),
                   'page_template': page_template,                                  
                   }
     
@@ -49,7 +51,7 @@ def sub_category_index(request,category_name,sub_category_name):
 
     if request.is_ajax():
         context = {
-                   'entries': Article.objects.filter(published = True, category__name = sub_category_name).order_by('creation_date'),
+                   'entries': Article.objects.filter(published = True, category_tags__name = sub_category_name).order_by('creation_date'),
                    'page_template': page_template,
                    }
         template = page_template
@@ -59,7 +61,7 @@ def sub_category_index(request,category_name,sub_category_name):
                   'categories': Category.objects.filter(parent = None).order_by('sequence'),
                   'category_name': category_name,
                   'sub_categories': Category.objects.filter(parent__name = category_name).order_by('sequence'),
-                  'entries': Article.objects.filter(published = True, category__name = sub_category_name).order_by('creation_date'),
+                  'entries': Article.objects.filter(published = True, category_tags__name = sub_category_name).order_by('creation_date'),
                   'page_template': page_template,                                  
                   }
     
