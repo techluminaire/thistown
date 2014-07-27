@@ -19,7 +19,7 @@ class Article(CoreModelBase):
     header = models.CharField(max_length=255,blank = False, null = False)
     tagline =  models.CharField(max_length=255,blank = False, null = False)
     search_words = models.CharField(max_length=255,blank = True, null = True)
-    thumbnail = models.ImageField(upload_to='thumbnails/%Y/%m/%d')
+    thumbnail = models.ImageField(upload_to='thumbnails/%Y/%m/%d', verbose_name = 'Thumbnail (320x180)')
     photos = models.ManyToManyField(Photo, null = True, blank = True)
     content = models.TextField(blank = False) 
     published = models.BooleanField(default=False, db_index=True)
