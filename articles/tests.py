@@ -68,4 +68,8 @@ class ArticleTests(TestCase):
          
         self.assertIn(sub, article.category_tags.all())
         self.assertIn(parent, article.category_tags.all())
+        
+    def test_update_front_page_records_deletes_existing_front_page_records(self):
+        parent = Category.objects.create(name = 'parent1', sequence = 1, parent = None)
+        parent.save()   
 #     

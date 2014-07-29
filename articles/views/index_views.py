@@ -10,7 +10,8 @@ def index(request):
     #Get the top level categories
     template = loader.get_template('articles/index.html')
     context = RequestContext(request,{
-                                      'categories': Category.objects.filter(parent = None).order_by('sequence')                                  
+                                      'categories': Category.objects.filter(parent = None).order_by('sequence'),
+                                      'articles': Article.objects.filter(published = True, front_page = True).order_by('creation_date'),                                  
                                       })
     response = template.render(context)
     return HttpResponse(response)  

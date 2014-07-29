@@ -32,6 +32,16 @@ class Article(CoreModelBase):
     def __unicode__(self):
         return self.name
 
+    def __init__(self, *args, **kwargs):
+        '''
+        Initialization of object
+        Keeps track of original values in initialization
+        '''
+        super(Article, self).__init__(*args, **kwargs)
+        
+        self._original_front_page = self.front_page
+
+    
         
     def save(self, *args, **kwargs):
         
@@ -42,13 +52,42 @@ class Article(CoreModelBase):
         
         #Need to save model first before adding category tags
         self.assign_category_tags()
+        
+        self.update_front_page_records()
+   
    
     def assign_category_tags(self):
+        '''
+        Creates faster lookup tags to filter by category and parent category
+        '''
+        
         category_tag = self.category
         while category_tag != None:
             self.category_tags.add(category_tag)
             category_tag = category_tag.parent
             
         
-       
+    def update_front_page_records(self):   
+        '''
+        Creates fast lookup data to be displayed on the front page
+        '''
+        
+        from articles.models.front_page_article import FrontPageArticle
+        
+        #Remove any front page record associated with article  
+        try:
+            FrontPageArticle.objects.filter(article__id=self.id).delete()
+        except:
+            pass
+        
+        #Article not longer on front page or does not have a photo, so finish
+        if not self.front_page or self.photos.count() == 0:         
+            return
+        
+        #Article is on front page so add record
+        FrontPageArticle.objects.create(article = self
+                                        ,article_name = self.name
+                                        ,tagline = self.tagline
+                                        ,image = self.photos.all()[0].image
+                                        ,creation_date = self.creation_date)
     
