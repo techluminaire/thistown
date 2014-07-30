@@ -9,14 +9,7 @@
 	
 	<!--<script src="{% static "js/jquery-2.1.1.min.js" %}"></script>--> <!--Work offline-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<!--JSSOR slideshow control-->
-	<script src="jssor.slider.mini.js"></script>
-	<script>
-	    jQuery(document).ready(function ($) {
-	        var options = { $AutoPlay: true };
-	        var jssor_slider1 = new $JssorSlider$('slider1_container', options);
-	    });
-	</script> 
+	<script src="{% static "js/jssor.slider.mini.js" %}"></script>
 
 	{% block extrahead %}{% endblock %}
 	

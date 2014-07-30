@@ -1,4 +1,8 @@
 {% extends "base_site.html" %}
+
+{% block extra_document_ready %}
+
+{% endblock %}
 {% block extrascript %}
 <script>
 	function resize_images() {
@@ -19,11 +23,12 @@
 	});
 	
 	//Execute when page is loaded
- 	$(document).ready(function(){
- 		resize_images()
- 	});
- 	
- 	
+    $(document).ready(function () {                
+       	resize_images()
+    });
+	
+	
+
 </script>
 {% endblock %}
 {% block subheader %}

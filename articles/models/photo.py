@@ -16,3 +16,4 @@ class Photo(CoreModelBase):
         This is to allow models to be spread across multiple files
         '''
         app_label = 'articles'
+

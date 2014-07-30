@@ -55,6 +55,7 @@ class Article(CoreModelBase):
         
         self.update_front_page_records()
    
+
    
     def assign_category_tags(self):
         '''
@@ -75,19 +76,27 @@ class Article(CoreModelBase):
         from articles.models.front_page_article import FrontPageArticle
         
         #Remove any front page record associated with article  
-        try:
-            FrontPageArticle.objects.filter(article__id=self.id).delete()
-        except:
-            pass
+        FrontPageArticle.objects.filter(article__id=self.id).delete()
+
         
         #Article not longer on front page or does not have a photo, so finish
-        if not self.front_page or self.photos.count() == 0:         
+        if not self.front_page or self.photos.all().count() == 0:         
             return
         
         #Article is on front page so add record
-        FrontPageArticle.objects.create(article = self
+        frontpage_article = FrontPageArticle.objects.create(article = self
                                         ,article_name = self.name
                                         ,tagline = self.tagline
                                         ,image = self.photos.all()[0].image
                                         ,creation_date = self.creation_date)
-    
+        frontpage_article.save()
+
+        
+#handle when new photos are added etc, to update front page article        
+from django.db.models.signals import m2m_changed     
+def photos_changed(sender, **kwargs):
+    if kwargs['action'] in ('post_add', 'post_remove'):
+        kwargs['instance'].update_front_page_records()
+                            
+
+m2m_changed.connect(photos_changed, sender=Article.photos.through)

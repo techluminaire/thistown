@@ -50,3 +50,9 @@ articles/models/__pycache__/__init__.cpython-34.pyc
 articles/models/__pycache__/__init__.cpython-34.pyc
 articles/models/__pycache__/__init__.cpython-34.pyc
 db.sqlite3
+*.sqlite3
+media/photos/2014/07/29/Barcelona2.jpg
+media/photos/2014/07/30/highlander02.jpg
+media/thumbnails/2014/07/29/queen_wallpapers2039.jpg
+media/thumbnails/2014/07/30/mrbadguy.jpg
+*.sqlite3
