@@ -4,6 +4,7 @@
 {% block extrascript %}
 	<!--JSSOR slideshow control-->
 	<script>
+				
 		jQuery(document).ready(function ($) {
             //Reference http://www.jssor.com/development/slider-with-slideshow-jquery.html
             //Reference http://www.jssor.com/development/tool-slideshow-transition-viewer.html
@@ -63,56 +64,87 @@
             };
 
             var jssor_sliderb = new $JssorSlider$("slideshow", options);
-            //responsive code begin
-            //you can remove responsive code if you don't want the slider scales while window resizes
+            
             function ScaleSlider() {
-                var parentWidth = jssor_sliderb.$Elmt.parentNode.clientWidth;
-                if (parentWidth)
-                    jssor_sliderb.$SetScaleWidth(Math.min(parentWidth, 600));
-                else
-                    window.setTimeout(ScaleSlider, 30);
-            }
-
-            ScaleSlider();
-
+        	       	
+				if (typeof jssor_sliderb === 1)  
+				{
+					window.setTimeout(ScaleSlider, 30); 
+					return;
+				}
+				if (undefined === 1) 
+				{
+					window.setTimeout(ScaleSlider, 30); 
+					return;
+			}
+			
+	        var parentWidth = jssor_sliderb.$Elmt.parentNode.clientWidth;
+	        if (parentWidth)
+	            jssor_sliderb.$SetScaleWidth(parentWidth);
+	        else
+	            window.setTimeout(ScaleSlider, 30);
+		}
+            
+            //So it works in IE instead of just ScaleSlider()                     
+            window.setTimeout(ScaleSlider, 30);
+            
+            //responsive code begin
             if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
                 $(window).bind('resize', ScaleSlider);
             }
 
-
-            //if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-            //    $(window).bind("orientationchange", ScaleSlider);
-            //}
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
+                $(window).bind("orientationchange", ScaleSlider);
+            }
             //responsive code end
         });
+        
+        ScaleSlider();
+           
 	</script> 
 {% endblock %}
 
 {% block content %}
+
+<div id="index_page_left">
 	 <!-- slideshow -->
-	 <div id="slideshow" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
+	 <div id="slideshow">
 	 
 	  	<!-- Loading Screen -->
 	    <div id="slideshow_loading_container" u="loading">
 	        <div id="slideshow_loading_background">
 	        </div>
-	        <div id="slideshow_loading_image" style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;
-	            top: 0px; left: 0px;width: 100%;height:100%;">
+	        <div id="slideshow_loading_image" >
 	        </div>
 	    </div>
 	 
     	<!-- Slides Container -->
 	    <div id="slides" u="slides">
 	    	{% for article in articles %}
-	        	<div>
-	        		<img u="image" src="/media/{{article.image}}"/>
-	        		<div u="thumb">{{article.tagline}}</div>
-	        	</div>
+	    	
+        	<div>
+        		
+        		<img u="image" src="/media/{{article.image}}"/>
+        		
+        		<a href="/articles/{{article.article_name}}">
+        		<div u="caption" t="MCLIP|B" t2="T" class="caption_container">
+        		
+                    <div class="caption_box">
+                    </div>
+                    <div class="caption_text">
+                        {{article.tagline}}
+                    </div>
+               
+            	</div>
+     			</a>
+     			
+        	</div>
+	        	
 	        {% endfor %}
 	    </div>
 	    
 	      <!-- bullet navigator container -->
-        <div u="navigator" class="jssorb01">
+        <div u="navigator" class="jssorb01" style="	position: absolute; bottom: -22px; right: 10px;">
             <!-- bullet navigator item prototype -->
             <div u="prototype" style="POSITION: absolute; WIDTH: 12px; HEIGHT: 12px;"></div>
         </div>
@@ -124,7 +156,16 @@
         <span u="arrowright" class="jssora05r" style="width: 40px; height: 40px; top: 123px; right: 8px">
         </span>
 	</div>
+</div>
+<div id="index_page_right">
 	 <!-- Calendar Link -->
-		
+	 Calendar<br>
+	 Calendar<br>
+	 Calendar<br>
+	 Calendar<br>
+	 Calendar<br>
+	 Calendar<br>
+	 
+</div>
 
 {% endblock %}

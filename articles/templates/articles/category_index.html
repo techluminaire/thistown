@@ -8,27 +8,27 @@
 	function resize_images() {
 	   // This function is to resize image height as 40% of the width
 	   var div = $(".category_image");
-	    var totalWidth = div.width();
-	    var ratio = parseInt((totalWidth) / 100 * 56);
-	    
-	    // Set the height in css
-	    $(div).css({
+	   var totalWidth = div.width();
+	   var ratio = parseInt((totalWidth) * 0.56); //16:9 ratio
+	   
+	   var fontSize = totalWidth * 0.35;
+	   
+	   // Set the height in css
+	   $(div).css({
 	        height: ratio
-	    });        
+	   });   
+   
 	};
 
-	//Execute this when window is resized
-	$(window).resize(function(){
-		resize_images()
-	});
 	
 	//Execute when page is loaded
     $(document).ready(function () {                
        	resize_images()
+       	
+       	$(window).bind("orientationchange", resize_images);
+       	$(window).bind('resize', resize_images);
     });
 	
-	
-
 </script>
 {% endblock %}
 {% block subheader %}
