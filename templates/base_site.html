@@ -1,4 +1,5 @@
 {% load staticfiles %}{% load url from future %}<!DOCTYPE html>
+{% load cache %}
 
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
@@ -24,6 +25,7 @@
 <!-- Container -->
 <div id="container">
 
+	{% cache 300 header %}
     <!-- Header -->
     <div id="header">
     	<div id="logo">
@@ -31,16 +33,9 @@
     	</div>
         <div id="menu">
 			<ul>
-				<li><a href="/whatson">WHATS ON</a></li>
 				{%for category in categories %}
 		         	<li><a href="/{{category.name}}/">{{category.name}}</a></li>
 		        {% endfor %}
-		        <!--
-				<li><a href="/music">MUSIC</a></li>
-				<li><a href="/film">FILM</a></li>
-				<li><a href="/eat">EAT</a></li>
-				<li><a href="/people">PEOPLE</a></li>
-				-->
 			</ul>
         </div>
         <div id="social">
@@ -64,6 +59,7 @@
         </div>
     </div>
     <!-- END Header -->
+   {% endcache %}
    
     <!-- Content -->
     <div id="content">
@@ -74,7 +70,7 @@
 
     {% block footer %}
     <div id="footer">
-     	Created By Justin @ <a href="http://techluminaire.co.uk">Tech Luminaire</a>
+     	Website created By Justin @ <a href="http://www.techluminaire.co.uk">Tech Luminaire</a>
     </div>
     {% endblock %}
 </div>

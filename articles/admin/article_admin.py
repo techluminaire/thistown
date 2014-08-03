@@ -1,6 +1,9 @@
 from django.contrib import admin
 from articles.models.article import Article
-#from Core.widgets import VerboseManyToManyRawIdWidget
+from django.db import models
+from django.forms import TextInput, Textarea
+from articles.admin.admin_site import admin_site
+
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -19,7 +22,10 @@ class ArticleAdmin(admin.ModelAdmin):
     readonly_fields = ('last_updated_date','creation_date','id')
     raw_id_fields = ('photos',)
 
-
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':50, 'cols':100})},
+    }
     
     #Auto populates author field with current user
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
@@ -29,4 +35,4 @@ class ArticleAdmin(admin.ModelAdmin):
             db_field, request, **kwargs
         )
     
-admin.site.register(Article, ArticleAdmin)
+admin_site.register(Article, ArticleAdmin)

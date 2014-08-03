@@ -1,6 +1,7 @@
 from django.contrib import admin
 from articles.models.category import Category
-       
+from articles.admin.admin_site import admin_site
+
 class CategoryAdmin(admin.ModelAdmin):
     '''
     Category admin customisation
@@ -16,4 +17,4 @@ class CategoryAdmin(admin.ModelAdmin):
     readonly_fields = ('last_updated_date','creation_date','id',)
 
 #Registering models
-admin.site.register(Category,CategoryAdmin)
+admin_site.register(Category,CategoryAdmin)

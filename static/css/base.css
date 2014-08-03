@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 12px;
-    font-family: Arial;
+    font-family: 'Roboto Condensed',Arial,sans-serif;
     color: white;
     background: black;
     min-width: 400px
@@ -44,7 +44,7 @@ h1,h2,h3,h4,h5 {
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 300%;
     padding: 0 6px 0 0;
     margin: 0 0 .2em 0;
 }
@@ -223,6 +223,7 @@ p img, h1 img, h2 img, h3 img, h4 img, td img {
 
 #content {
     margin-top: 10px;
+    overflow: hidden;
 }
 
 
@@ -242,9 +243,11 @@ p img, h1 img, h2 img, h3 img, h4 img, td img {
     clear: both;
     padding: 10px;
     display: block;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    font-size:80%
 }
 
 
@@ -380,7 +383,7 @@ div#logo {
 	margin-left: 1.5%;
 	margin-top: 0px;
 	margin-right: 0px;
-	maergin-bottom:0px
+	margin-bottom:0px
 	list-style-type: none;
     position:  relative;
     float:left;
@@ -433,47 +436,12 @@ div#logo {
 	background-color: red;
 }
 
-@media only screen and (max-width: 700px) {
-	/* Changes to layout for mobile browsers */
-	.article_list li { 
-		float:left;
-		display: inline; 
-		margin-right: 1.5%; 
-		margin-top: 3%; 
-		width: 97%;
-	}
-	
-	/* Reduce font size on headings */
-	#menu {
-		float:left;
-		padding-top: 25px;
-	    font-family: 'Roboto Condensed', sans-serif;
-		font-size: 14px;
-		font-style: normal;
-		font-variant: normal;
-		font-weight: normal;
-		text-transform: uppercase;
-		height: auto;
-	}
-	
-	/* Get rid of social buttons... for now */
-	#social {
-		width: 0px;
-		height: 0px
-	}
 
-	/* Index layout without split */
-	#index_page_left {
-		width:100%; 
-	}
-	
-	#index_page_right {
-		width:100%; 
-		float: left;		
-	}
-}
+
 
 /* JSSOR Slider */
+
+
 #slideshow {
 	position: relative; 
 	width: 640px;
@@ -564,38 +532,6 @@ div#logo {
 .jssora05ldn { background-position: -250px -40px; }
 .jssora05rdn { background-position: -310px -40px; }
 
-/* Not sue what this is for
-.captionOrange, .captionBlack {
-     color: #fff;
-     font-size: 20px;
-     line-height: 30px;
-     text-align: center;
-     border-radius: 4px;
-}
- 
-.captionOrange {
-     background: #EB5100;
-     background-color: rgba(235, 81, 0, 0.6);
-}
- 
-.captionBlack {
- 	font-size:16px;
-     background: #000;
-     background-color: rgba(0, 0, 0, 0.4);
-}
- 
-a.captionOrange, A.captionOrange:active, A.captionOrange:visited {
- 	color: #ffffff;
- 	text-decoration: none;
-}
- 
-a.captionOrange:hover {
-     color: #eb5100;
-     text-decoration: underline;
-     background-color: #eeeeee;
-     background-color: rgba(238, 238, 238, 0.7);
-}
-*/
 
 .caption_container {
 	 position: absolute; 
@@ -629,3 +565,106 @@ a.captionOrange:hover {
     text-align: left;
 }
 
+/* Article layout */
+#article_date_author {
+	width: 100%;
+	margin-left: 80px;
+}
+
+#article_header {
+	margin-left: 80px;
+	width: 100%;
+	float: left;
+}
+
+#social_container {
+	width: 80px;  
+	float: left;
+	text-align: center;
+}
+
+.fb-like {
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.twitter-share-button {
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+
+
+#slideshow_articlewidthconstrain {
+	max-width: 720px;
+}
+
+#article_container {
+	margin-left: 80px;
+	padding-right: 1.5%;
+}
+
+#article_blocktext {
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 90em
+}
+
+
+@media only screen and (max-width: 700px) {
+	/* Changes to layout for mobile browsers */
+	.article_list li { 
+		float:left;
+		display: inline; 
+		margin-right: 1.5%; 
+		margin-top: 3%; 
+		width: 97%;
+	}
+	
+	/* Reduce font size on headings */
+	#menu {
+		float:left;
+		padding-top: 25px;
+	    font-family: 'Roboto Condensed', sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: normal;
+		text-transform: uppercase;
+		height: auto;
+	}
+	
+	/* Get rid of social buttons... for now */
+	#social {
+		width: 0px;
+		height: 0px
+	}
+
+	/* Index layout without split */
+	#index_page_left {
+		width:100%; 
+	}
+	
+	#index_page_right {
+		width:100%; 
+		float: left;		
+	}
+	
+	#article_header {
+		margin-left: 1.5%;
+		width: 100%;
+		float: left;
+		font-size: 200%;
+	}
+	
+	#social_container {
+		width: 0px;  
+		float: left;
+		display: none;
+	}
+	
+	#article_container {
+		margin-left: 1.5%;
+		padding-right: 1.5%;
+	}
+}

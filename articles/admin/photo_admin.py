@@ -1,5 +1,6 @@
 from django.contrib import admin
 from articles.models.photo import Photo
+from articles.admin.admin_site import admin_site
        
 class PhotoAdmin(admin.ModelAdmin):
     '''
@@ -17,5 +18,5 @@ class PhotoAdmin(admin.ModelAdmin):
     readonly_fields = ('last_updated_date','creation_date','id')
 
 #Registering models
-admin.site.register(Photo,PhotoAdmin)
+admin_site.register(Photo,PhotoAdmin)
 

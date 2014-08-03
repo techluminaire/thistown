@@ -13,7 +13,7 @@ def article_view(request,article_name):
         context = RequestContext(request,{
                                           'categories': Category.objects.filter(parent = None).order_by('sequence'),
                                           'article': article,
-                                          'photos': article.photos.all()                              
+                                          'photos': article.photos.all(),                            
                                           })
         
     #article not found show a not found
