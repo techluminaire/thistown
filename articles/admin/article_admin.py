@@ -12,7 +12,7 @@ class ArticleAdmin(admin.ModelAdmin):
     '''
 
     fieldsets = [
-              (None, {'fields': ['id','name','category','search_words','published','front_page','header','tagline','thumbnail','photos','content','author']}), 
+              (None, {'fields': ['id','name','category','search_words','published','front_page','header','tagline','thumbnail','photos','youtube_embed','content','author']}), 
               ('Tracking',  {'fields':['last_updated_date','creation_date'], 'classes': ['collapse']}),
               ] 
     

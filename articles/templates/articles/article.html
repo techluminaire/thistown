@@ -1,6 +1,10 @@
 
 {% extends "base_site.html" %}
 
+{% block extrahead %}
+	<meta name="description" content="{{ article.header }} {{ article.tagline }}">
+{% endblock %}
+
 {% block extrascript %}
 
 <!--JSSOR slideshow control-->
@@ -222,7 +226,13 @@
 			<p>
 				{{article.content|safe}}
 			</p>
-
+			
+			
+			<div class="video-container">
+         		{{ article.youtube_embed|safe }}
+			</div>
+			
+			
 		</div>
 	</div>
 
