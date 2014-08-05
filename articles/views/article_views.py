@@ -17,8 +17,8 @@ def article_view(request,article_name):
                                           })
         
     #article not found show a not found
-    except Article.DoesNotExist:
-        template = loader.get_template('articles/article_not_found.html')
+    except:
+        template = loader.get_template('articles/page_not_found.html')
         context = RequestContext(request,{
                                           'categories': Category.objects.filter(parent = None).order_by('sequence'),                     
                                           })

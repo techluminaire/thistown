@@ -5,7 +5,8 @@ body {
     font-family: 'Roboto Condensed',Arial,sans-serif;
     color: white;
     background: black;
-    min-width: 320px
+    min-width: 320px;
+    border: 0px;
 }
 
 /* LINKS */
@@ -41,6 +42,7 @@ p {
 
 h1,h2,h3,h4,h5 {
     font-weight: lighter;
+    font-family: 'Roboto Condensed',Arial,sans-serif;
 }
 
 h1 {
@@ -50,7 +52,7 @@ h1 {
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 200%;
     margin: 1em 0 .5em 0;
 }
 
@@ -60,14 +62,13 @@ h2.subhead {
 }
 
 h3 {
-    font-size: 14px;
-    margin: .8em 0 .3em 0;
-    color: #666;
+    font-size: 150%;
+    margin: 0 0 .3em 0;
     font-weight: bold;
 }
 
 h4 {
-    font-size: 12px;
+    font-size: 120%;
     margin: 1em 0 .8em 0;
     padding-bottom: 3px;
 }
@@ -258,6 +259,7 @@ p img, h1 img, h2 img, h3 img, h4 img, td img {
     background: white;
     color: black;
     overflow: hidden;
+    border: 0px;
 }
 
 
@@ -296,9 +298,9 @@ div#logo {
 
 #social {
 	float:right;
-	padding-top: 16px;
+	padding-top: 31px;
     font-family: 'Roboto Condensed', sans-serif;
-	font-size: 16px;
+	font-size: 8px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
@@ -307,13 +309,58 @@ div#logo {
 
 #social ul {
     height: auto;
-    padding: 8px 0px;
     margin: 0px;
+    padding-left: 0px;
 }
 
 #social li { 
 	display: inline; 
-	margin-right: 6px; 
+	margin-right: 5px; 
+}
+#social img {
+	height: 20px;
+	width: 20px;
+}
+
+#header_search {
+	float: right;
+	padding-top: 22px;
+	margin-right: 7px;
+}
+
+#header_search_form {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	background: #ccc;
+	padding: 0px 10px;
+	border: 0px;
+	border-radius: 15px;
+}
+#header_search_fieldset {
+	border: 0px;
+}
+
+#header_search_box {
+	height: 20px;
+	border: 0px;
+	background: #ccc;
+	outline: none;
+	vertical-align: middle;
+	width: 97px;
+}
+
+#header_search_button {
+	height: 12px;
+	width: 12px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: url(../images/icon-search.png) no-repeat;
+	background-size: contain;
+	content: "";
+	display: block;
+	color: transparent;
+	float: right;
+	border: 0px;
 }
 
 #sub_category_title {
@@ -411,7 +458,7 @@ div#logo {
 	bottom: 0;
 	position:  absolute;
 	background-color: rgba(255, 255, 255, .7);
-	width: 100%;
+	width: 98.5%;
 	height: 22%;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 120%;
@@ -633,6 +680,31 @@ div#logo {
     height: 100%;
 }
 
+.search_result_list {
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+	overflow: hidden;
+}
+
+.search_result_list ul {
+	padding-left: 0px;
+}
+
+.search_result{
+	width: 100%;
+	overflow: hidden;
+}
+
+
+
+.search_result_image {
+	width: 15%;
+	min-width: 100px;
+	height: auto;
+	margin-right: 1.5%;
+}
+
+
 
 @media only screen and (max-width: 700px) {
 	/* Changes to layout for mobile browsers */
@@ -646,8 +718,7 @@ div#logo {
 	
 	/* Reduce font size on headings */
 	#menu {
-		float:left;
-		padding-top: 25px;
+		padding-top: 12px;
 	    font-family: 'Roboto Condensed', sans-serif;
 		font-size: 14px;
 		font-style: normal;
@@ -655,12 +726,29 @@ div#logo {
 		font-weight: normal;
 		text-transform: uppercase;
 		height: auto;
+		float: none;
+	}
+	
+	#menu ul {
+		padding-top: 4px;
+		padding-bottom: 0px;
+	}
+	
+	#header_search {
+		padding-top: 0px;
+		margin-top: 0px;
+		margin-left:79px;
+		float: None;
+		width: 160px;
+	}
+	#header_search_box {
+		width: 116px;
 	}
 	
 	/* Get rid of social buttons... for now */
 	#social {
 		width: 0px;
-		height: 0px
+		height: 0px;
 	}
 
 	/* Index layout without split */

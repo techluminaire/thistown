@@ -1,0 +1,19 @@
+{% for article in articles %}
+
+	<div class="search_result">
+		<a href="/articles/{{article.name}}">
+		
+			<img class ="search_result_image" align = "left" src="/media/{{article.thumbnail}}"/>
+								
+			<h3>
+				{{article.header}}
+			</h3>
+			
+			<p>
+				{{article.content|slice:":255"}} ...
+			</p>				
+					
+		</a>		
+	</div>
+   
+{% endfor %}

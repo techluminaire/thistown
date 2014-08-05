@@ -25,41 +25,51 @@
 <!-- Container -->
 <div id="container">
 
-	{% cache 300 header %}
+	{# cache 300 header #}
     <!-- Header -->
     <div id="header">
     	<div id="logo">
     		<a href = "/"><img src="{% static "images/logo.png" %}"/></a>
     	</div>
-        <div id="menu">
-			<ul>
-				{%for category in categories %}
-		         	<li><a href="/{{category.name}}/">{{category.name}}</a></li>
-		        {% endfor %}
-			</ul>
-        </div>
-        <div id="social">
-        	<ul>
-				<li>
-					<a href="https://twitter.com/ThisTown1">
-						<img src="{% static "images/twitter.png" %}"/>
-					</a>
-				</li>
-				<li>
-					<a href="https://www.facebook.com/pages/This-Town/548581228598220?ref=hl">
-						<img src="{% static "images/facebook.png" %}"/>
-					</a>
-				</li>
-				<li>
-					<a href="http://instagram.com/this_town">
-						<img src="{% static "images/instagram.png" %}"/>
-					</a>
-				</li>			
-			</ul>
-        </div>
+    	<div>
+	        <div id="menu">
+				<ul>
+					{%for category in categories %}
+			         	<li><a href="/{{category.name}}/">{{category.name}}</a></li>
+			        {% endfor %}
+				</ul>
+	        </div>
+	        <div id="social">
+	        	<ul>
+					<li>
+						<a href="https://twitter.com/ThisTown1">
+							<img src="{% static "images/twitter.png" %}"/>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/pages/This-Town/548581228598220?ref=hl">
+							<img src="{% static "images/facebook.png" %}"/>
+						</a>
+					</li>
+					<li>
+						<a href="http://instagram.com/this_town">
+							<img src="{% static "images/instagram.png" %}"/>
+						</a>
+					</li>			
+				</ul>
+	        </div>
+	        <section id="header_search">
+	    		<form id="header_search_form" name="search" action="/search" method="GET">
+	    			<fieldset id="header_search_fieldset">
+						<input id="header_search_box" type="text" placeholder="SEARCH" autocomplete="off" name="search_text"></input>
+						<button id="header_search_button" type="submit">Submit</button>
+					</fieldset>
+				</form>
+			</section>
+		</div> 
     </div>
     <!-- END Header -->
-   {% endcache %}
+   {# endcache #}
    
     <!-- Content -->
     <div id="content">
