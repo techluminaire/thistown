@@ -1,8 +1,12 @@
+{% load endless %}
+
+{% paginate articles %}
+
 {% for article in articles %}
 
 	<div class="search_result">
 		<a href="/articles/{{article.name}}">
-		
+
 			<img class ="search_result_image" align = "left" src="/media/{{article.thumbnail}}"/>
 								
 			<h3>
@@ -10,10 +14,12 @@
 			</h3>
 			
 			<p>
-				{{article.content|slice:":255"}} ...
-			</p>				
-					
+				{{article.content|removetags:"p div span img strong"|slice:":255"}} ...
+			</p>							
+
 		</a>		
 	</div>
    
 {% endfor %}
+
+{% show_more %}

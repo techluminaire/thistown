@@ -1,3 +1,7 @@
+{% load endless %}
+
+{% paginate entries %}
+
 {% for entry in entries %}
     <li class="index_image_container">
 	    <a href="/articles/{{entry.name}}">
@@ -9,3 +13,5 @@
 	    </a>
 	</li>
 {% endfor %}
+
+{% show_more %}

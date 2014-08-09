@@ -159,13 +159,15 @@
 </div>
 <div id="index_page_right">
 	 <!-- Calendar Link -->
-	 Calendar<br>
-	 Calendar<br>
-	 Calendar<br>
-	 Calendar<br>
-	 Calendar<br>
-	 Calendar<br>
-	 
+	<a id="index_calendar_link" href="/whatson/{% now "Y-m-d" %}">
+		<div>		
+			<div id="index_month">{{ month }}</div>
+			<div id="index_day">{{ day }}</div>
+			<div id="index_day_of_week">{{ day_of_week }}</div>
+			<div id="index_year">{% now "Y" %}</div>
+		</div>
+	</a>
+	
 </div>
 
 {% endblock %}

@@ -1,12 +1,13 @@
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from django.template import RequestContext, loader
+from django.template import RequestContext 
 from articles.models import Article,Category
 
    
-def search_results(request, search_text):
+def search_results(request):
     
-    try:        
+    try:
+        search_text = request.GET.get('search_text', '')
+                
         page_template = 'articles/search_results_page.html'
                 
         if request.is_ajax(): #Getting results
@@ -36,13 +37,7 @@ def search_results(request, search_text):
                 template, context, context_instance=RequestContext(request))
  
         
-    except: #page not found for any errors
-        
-        template = loader.get_template('articles/page_not_found.html')
-        context = RequestContext(request,{
-                                          'categories': Category.objects.filter(parent = None).order_by('sequence'),                     
-                                          })
-     
-        response = template.render(context)
-        return HttpResponse(response)
+    except Exception: #page not found for any errors
+        from articles.views import page_not_found
+        return page_not_found(request)
  
