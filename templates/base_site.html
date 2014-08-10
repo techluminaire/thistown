@@ -24,12 +24,12 @@
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 
 <!-- Container -->
-<div id="container">
+<div class="container">
 
 	{# cache 300 header #}
     <!-- Header -->
-    <div id="header">
-    	<div id="logo">
+    <div class="header">
+    	<div class="logo">
     		<a href = "/"><img src="{% static "images/logo.png" %}"/></a>
     	</div>
     	<div>
@@ -40,7 +40,7 @@
 			        {% endfor %}
 				</ul>
 	        </div>
-	        <div id="social">
+	        <div class="social">
 	        	<ul>
 					<li>
 						<a href="https://twitter.com/ThisTown1">
@@ -59,11 +59,11 @@
 					</li>			
 				</ul>
 	        </div>
-	        <section id="header_search">
-	    		<form id="header_search_form" name="search" action="/search" method="GET">
-	    			<fieldset id="header_search_fieldset">
-						<input id="header_search_box" type="text" placeholder="SEARCH" autocomplete="off" name="search_text"></input>
-						<button id="header_search_button" type="submit">Submit</button>
+	        <section class="header_search">
+	    		<form class="header_search_form" name="search" action="/search" method="GET">
+	    			<fieldset class="header_search_fieldset">
+						<input class="header_search_box" type="text" placeholder="SEARCH" autocomplete="off" name="search_text"></input>
+						<button class="header_search_button" type="submit">Submit</button>
 					</fieldset>
 				</form>
 			</section>
@@ -73,14 +73,14 @@
    {# endcache #}
    
     <!-- Content -->
-    <div id="content">
+    <div class="content">
 		{% block subheader %}{% endblock %}
 		{% block content %}{% endblock %}
     </div>
     <!-- END Content -->
 
     {% block footer %}
-    <div id="footer">
+    <div class="footer">
      	Website created By Justin @ <a href="http://www.techluminaire.co.uk">Tech Luminaire</a>
     </div>
     {% endblock %}

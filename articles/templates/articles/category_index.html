@@ -34,9 +34,9 @@
 </script>
 {% endblock %}
 {% block subheader %}
-	<div id="sub_category_title">{{sub_category_name}}</div>
+	<div class="sub_category_title">{{sub_category_name}}</div>
 
-   	<div id="submenu">
+   	<div class="submenu">
 		<ul>
 			{%for sub_category in sub_categories %}
 	         	<li><a href="/{{category_name}}/{{sub_category.name}}/">{{sub_category.name}}</a></li>
