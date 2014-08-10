@@ -29,6 +29,10 @@ a.section:link, a.section:visited {
     text-decoration: none;
 }
 
+a.quiet_link {
+	color: white;
+}
+
 /* GLOBAL DEFAULTS */
 
 p, ol, ul, dl {
@@ -345,7 +349,6 @@ div#logo {
 	border: 0px;
 	background: #ccc;
 	outline: none;
-	vertical-align: middle;
 	width: 97px;
 }
 
@@ -356,10 +359,7 @@ div#logo {
 	margin-bottom: 5px;
 	background: url(../images/icon-search.png) no-repeat;
 	background-size: contain;
-	content: "";
-	display: block;
-	color: transparent;
-	float: right;
+	color: transparent;	
 	border: 0px;
 }
 
