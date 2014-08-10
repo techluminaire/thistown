@@ -12,17 +12,17 @@ def search_results(request):
                 
         if request.is_ajax(): #Getting results
             context = {
-                       'articles': Article.objects.filter(published = True, search_words__contains = search_text).order_by('-creation_date'),
+                       'articles': Article.objects.filter(published = True, search_words__icontains = search_text).order_by('-creation_date'),
                        'page_template': page_template,
                        }
             template = 'articles/search_results_page.html'
             
         else: #Getting full page
             
-            if Article.objects.filter(published = True, search_words__contains = search_text).count() > 0:
+            if Article.objects.filter(published = True, search_words__icontains = search_text).count() > 0:
                 context = {
                           'categories': Category.objects.filter(parent = None).order_by('sequence'),
-                          'articles': Article.objects.filter(published = True, search_words__contains = search_text).order_by('-creation_date'),
+                          'articles': Article.objects.filter(published = True, search_words__icontains = search_text).order_by('-creation_date'),
                           'page_template': page_template,                                  
                           }
                 template = 'articles/search_results.html'
