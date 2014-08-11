@@ -1,11 +1,10 @@
-from articles.models.model_base import CoreModelBase
 from django.db import models
 from articles.models.category import Category 
 from articles.models.photo import Photo
 from django.contrib.auth.models import User
 
 #Represents an article
-class Article(CoreModelBase):
+class Article(models.Model):
     
     class Meta:
         '''
@@ -15,7 +14,7 @@ class Article(CoreModelBase):
         
     
     category = models.ForeignKey(Category,null=False, db_index = True)          
-    name = models.CharField(max_length=255, unique=True, blank = False, db_index = True, null = False)
+    name = models.CharField(max_length=255, unique=True, blank = False, db_index = True, null = False, verbose_name = 'slug (unique)')
     header = models.CharField(max_length=255,blank = False, null = False)
     tagline =  models.CharField(max_length=255,blank = False, null = False)
     search_words = models.CharField(max_length=255,blank = True, null = True)
@@ -29,6 +28,10 @@ class Article(CoreModelBase):
     
     #This is so articles can be classified by category and sub category
     category_tags = models.ManyToManyField(Category, null =False, db_index = True, related_name = 'category_tags')
+    
+    #Tracking
+    creation_date = models.DateTimeField(auto_now_add=True, db_index=True)
+    last_updated_date = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
         return self.name

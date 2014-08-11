@@ -1,0 +1,22 @@
+
+{% extends "base_site.html" %}
+
+{% block extrascript %}
+	<script>
+		$(document).ready(function() {
+		    $(".event_day").click(function(){
+		    	id = this.id;
+		        alert(id);
+		    }); 
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+	<div class="event_calendar">
+		{{ calendar|safe}}
+	</div>
+	<div class="event_list">
+	</div> 
+
+{% endblock %}

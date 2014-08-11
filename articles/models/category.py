@@ -1,8 +1,7 @@
 from django.db import models
-from articles.models.model_base import CoreModelBase
 
 #Allows categories and sub categories
-class Category(CoreModelBase):
+class Category(models.Model):
     
     class Meta:
         '''
@@ -13,12 +12,16 @@ class Category(CoreModelBase):
         verbose_name_plural = "Categories"
         
     
-    name = models.CharField(max_length=50, db_index=True, null = False, blank = False)
+    name = models.CharField(max_length=255, unique=True, blank = False, db_index = True, null = False)
     sequence = models.IntegerField(null=True, db_index=True)
     parent = models.ForeignKey('self', blank = True, null = True, related_name="children", db_index=True)
     
     #Used for ordering within admin
     path_and_name = models.TextField()
+    
+    #Tracking
+    creation_date = models.DateTimeField(auto_now_add=True, db_index=True)
+    last_updated_date = models.DateTimeField(auto_now=True) 
     
     def __unicode__(self):
         return self.path_and_name

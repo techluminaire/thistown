@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'endless_pagination',
     'articles',
+    'events',
 )
 
 MIDDLEWARE_CLASSES = (
