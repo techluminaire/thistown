@@ -1,9 +1,11 @@
 from django.db import models
 from articles.models.article import Article 
 
-#This objects of this model are auto created and provide a quick lookup of front page articles
 
 class FrontPageArticle(models.Model):
+    '''
+    The objects of this model are auto created and provide a quick lookup of front page articles
+    '''
     
     class Meta:
         '''

@@ -1,7 +1,11 @@
 from django.db import models
 
-#Allows categories and sub categories
+
 class Category(models.Model):
+    '''
+    Allows classification of articles.  Also used to build top menu
+    Allows categories and sub categories
+    '''
     
     class Meta:
         '''
